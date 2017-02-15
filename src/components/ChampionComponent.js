@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import action from '../actions.js';
+import { onePlus } from '../actions';
 
 class ChampionComponent extends React.Component {
   render() {
@@ -10,7 +10,8 @@ class ChampionComponent extends React.Component {
       <div className="jumbotron text-center">
 				<h1>Champion Component</h1>
         <h2>{ this.props.character }</h2>
-        <button onClick={ this.props.addOne }>Submit</button>
+        <h3>{ this.props.character2 }</h3>
+        <button onClick={ this.props.plusOne }>Submit</button>
 			</div>
     );
   }
@@ -18,15 +19,15 @@ class ChampionComponent extends React.Component {
 
 function championFunc (state) {
   return {
-    character: state.test.data
+    character: state.test.data,
+    character2: state.test.value
   }
 }
 
-function addOne() {
+function addOne(dispatch) {
+
   return {
-    plusOne: (dispatch) => (
-      dispatch(action.onePlus(this.props.character))
-    )  
+    plusOne: () => dispatch(onePlus())
   }
 }
 

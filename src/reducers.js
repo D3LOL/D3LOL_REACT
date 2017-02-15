@@ -2,14 +2,15 @@ import { combineReducers } from 'redux';
 
 var initState = {
   data: 1,
-  value: null
+  value: 2
 }
 
 function test (state = initState, action)  {
+
   switch(action.type) {
     case "one":
       return Object.assign({}, state, {
-        value: action.value + 2
+        value: state.value + 1
       });
     default:
       return state
