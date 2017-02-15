@@ -7,6 +7,7 @@ import RankComponent from './components/RankComponent';
 import ChampionComponent from './components/ChampionComponent';
 import MultiSearchComponent from './components/MultiSearchComponent';
 import './index.css';
+import { createStore } from 'redux';
 
 ReactDOM.render(
 	<Router history={browserHistory}>
