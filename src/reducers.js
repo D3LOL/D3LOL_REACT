@@ -10,6 +10,7 @@ function test (state = initState, action)  {
   switch(action.type) {
     case "one":
       return Object.assign({}, state, {
+        data: action.val + 1,
         value: state.value + 1
       });
     default:

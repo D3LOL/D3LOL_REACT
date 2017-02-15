@@ -27,7 +27,7 @@ function championFunc (state) {
 function addOne(dispatch) {
 
   return {
-    plusOne: () => dispatch(onePlus())
+    plusOne: () => dispatch(onePlus(100))
   }
 }
 
