@@ -9,7 +9,7 @@ function test (state = initState, action)  {
   switch(action.type) {
     case "one":
       return Object.assign({}, state, {
-        value: action.value + 1
+        value: action.value + 2
       });
     default:
       return state
