@@ -6,7 +6,7 @@ const RECEIVE_USER = "receive_user";
 const FAILGET_USER = "failget_user";
 
 var authState = {
-  auth: false,
+  auth: true,
   token: null
 }
 

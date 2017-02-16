@@ -8,8 +8,6 @@ class Champion extends React.Component {
   }
 
   render() {
-    // const data = this.props;
-    // console.log('name:::: ', this.props.data.name)
     const championView = (
       <div>
         { this.props.data.name }

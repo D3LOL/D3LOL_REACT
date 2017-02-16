@@ -18,19 +18,15 @@ class ChampionComponent extends React.Component {
       return data.map((championdata, i) => {
         console.log(championdata);
         return (<Champion
-          data={championdata}
+          data={ championdata }
         />);
       })
     }
 
     return (
-      <div className="jumbotron text-center">
-				<h1>Champion Component</h1>
-        <h2>{ this.props.character }</h2>
-        <h3>{ this.props.character2 }</h3>
-        <button onClick={ this.props.plusOne }>Submit</button>
-        <div>{mapToComponents(mockData)}</div>
-			</div>
+        <div>
+          {mapToComponents(mockData)}
+        </div>
     );
   }
 }
