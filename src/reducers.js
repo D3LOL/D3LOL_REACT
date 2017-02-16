@@ -14,7 +14,7 @@ function test (state = initState, action)  {
   switch(action.type) {
     case "one":
       return Object.assign({}, state, {
-        data: action.val + 1,
+        data: state.data + 1,
         value: state.value + 1
       });
     default:
@@ -36,7 +36,7 @@ function searchuser (state = searchState, action) {
     case RECEIVE_USER:
       return Object.assign({}, state, {
           status: action.status,
-          data: "haha"
+          data: action.data
         })
     case FAILGET_USER:
       return  Object.assign({}, state, {
