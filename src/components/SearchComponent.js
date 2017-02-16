@@ -20,6 +20,7 @@ class SearchComponent extends React.Component {
 
 	handleClick(){
 		this.props.searchUser(this.textInput.value);
+
 	}
 
   render() {
@@ -29,10 +30,10 @@ class SearchComponent extends React.Component {
      		 <div className="logo">
 				<img src="./img/logo.png"/>
 			</div>	
-			<input ref={textRef => this.textInput = textRef} type="text" placeholder="유저 닉네임...유저 닉네임...유저 닉네임...유저 닉네임...검색..." />
-			<button onClick={this.handleClick.bind(this)}>Click</button>
-			<UserList/>
-		</div>
+				<input ref={textRef => this.textInput = textRef} type="text" placeholder="유저 닉네임...유저 닉네임...유저 닉네임...유저 닉네임...검색..." />
+				<button onClick={this.handleClick.bind(this)}>Click</button>
+
+				<UserList/>
 
     );
   }
