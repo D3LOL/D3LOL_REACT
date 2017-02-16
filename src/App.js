@@ -1,6 +1,6 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute, IndexRedirect, Redirect } from 'react-router';
 import Header from './Header';
 import Login from './login/login.js'
 import SearchComponent from './components/SearchComponent';
@@ -28,18 +28,40 @@ const store = createStore(reducers, composeEnhancers(
 
 console.log(store.getState())
 
+const Temp = (props) => (
+      <div>
+      {console.log(store.getState().Auth.auth)}
+      {props.children}
+      </div>
+)
+
+const RedirectLogin = (props) => (
+      <div>
+      {props.children}
+      </div>
+)
+  
+
+
+
 class App extends React.Component {
+
+
 
   render(){
     return (
          <Provider store={store}>
            <Router history={browserHistory}>
-             <Route path='/' component={Header}>
-               <Route path='/search' component={SearchComponent}/>
-               <Route path='/rank' component={RankComponent}/>
-               <Route path='/champion' component={ChampionComponent}/>
-               <Route path='/multiSearch' component={MultiSearchComponent}/>
-               <Route path='/login' component={Login}/>
+             <Route path='/' component={Temp}>
+               <IndexRedirect to="/login" />
+               <Route path='/login' component={Login} />
+               <Route path={store.getState().Auth.auth ? '/main' : '/login'} component={Header} />
+               <Route path={store.getState().Auth.auth ? '/search' : '/login'} component={SearchComponent} />
+               <Route path={store.getState().Auth.auth ? '/rank' : '/login'} component={RankComponent} />
+               <Route path={store.getState().Auth.auth ? '/champion' : '/login'} component={ChampionComponent} />
+               <Route path={store.getState().Auth.auth ? '/multiSearch' : '/login'} component={MultiSearchComponent} />
+               <Route path='*' component={Login} />
+               <Route path='/login' component={Login} />
              </Route>
            </Router>
          </Provider>
