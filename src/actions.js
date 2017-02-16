@@ -4,6 +4,12 @@ export const RECEIVE_USER = "receive_user";
 export const FAILGET_USER = "failget_user";
 import axios from 'axios';
 
+// export function userList(user){
+// 	return {
+// 		type: "USER_LIST",
+// 		user
+// 	}
+// }
 
 export function pass(infor){
 	return {
