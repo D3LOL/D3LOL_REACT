@@ -6,12 +6,21 @@ import SearchComponent from './components/SearchComponent';
 import RankComponent from './components/RankComponent';
 import ChampionComponent from './components/ChampionComponent';
 import MultiSearchComponent from './components/MultiSearchComponent';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers.js';
+import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger';
+import promiseMiddleware from 'redux-promise';
 
 
-const store = createStore(reducers);
+const loggerMiddleware = createLogger()
+const store = createStore(reducers, 
+  applyMiddleware(
+  thunkMiddleware, loggerMiddleware, promiseMiddleware
+  )
+);
+
 
 
 const App = () => (
