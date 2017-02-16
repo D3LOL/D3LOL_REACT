@@ -35,6 +35,7 @@ passport.deserializeUser(function(obj, cb) {
 
 //Express
 
+const rankRouter = require('./routers/rank.js');
 const app = express();
 const router = express.Router();
 
@@ -55,7 +56,6 @@ app.use('/api/search', searchRouter);
 app.use('/api/rank', rankRouter);
 
 app.use('/login', authRouter);
-
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
