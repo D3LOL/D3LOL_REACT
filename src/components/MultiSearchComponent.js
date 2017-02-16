@@ -8,7 +8,7 @@ class MultiSearchComponent extends React.Component {
   render() {
     return (
       <div className="jumbotron text-center">
-				<h1>해주세요</h1>
+				<h1>해주세</h1>
 			</div>
     );
   }

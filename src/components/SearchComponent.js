@@ -2,8 +2,13 @@
 
 import React from 'react';
 import axios from 'axios';
+
 import { connect } from 'react-redux';
 import { axiosGet } from '../actions';
+
+import searchUser from '../lib/searchUser';
+import UserList from './UserListComponent';
+
 
 require('../styles/Search.css');
 
@@ -13,8 +18,13 @@ class SearchComponent extends React.Component {
 		this.handleClick = this.handleClick.bind(this)
 	}
 
+<<<<<<< HEAD
 	handleClick(){
 		this.props.searchUser(this.textInput.value);
+=======
+		searchUser(this.textInput.value);
+		
+>>>>>>> test naver login
 	}
 
   render() {
@@ -26,6 +36,7 @@ class SearchComponent extends React.Component {
 			</div>	
 				<input ref={textRef => this.textInput = textRef} type="text" placeholder="유저 닉네임...유저 닉네임...유저 닉네임...유저 닉네임...검색..." />
 				<button onClick={this.handleClick.bind(this)}>Click</button>
+<<<<<<< HEAD
 		
 			<div className="userContainer">
 				<div className="userStack">
@@ -40,6 +51,10 @@ class SearchComponent extends React.Component {
 					 stack.division 
 				</div>
 			</div>
+=======
+				
+				<UserList/>
+>>>>>>> test naver login
 			</div>
     );
   }
