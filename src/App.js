@@ -15,11 +15,13 @@ import promiseMiddleware from 'redux-promise';
 
 
 const loggerMiddleware = createLogger()
-const store = createStore(reducers, 
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(
   applyMiddleware(
   thunkMiddleware, loggerMiddleware, promiseMiddleware
   )
-);
+));
 
 
 

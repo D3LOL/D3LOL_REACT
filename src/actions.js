@@ -41,7 +41,7 @@ export function axiosGet(query){
 		return axios.get('/api/search', { params: { username: query } })
       			.then(res => {
    				   	console.log(res)
-        			dispatch(receiveUser(res))
+        			dispatch(receiveUser(res.data))
       			})
       			.catch(err => {
         			console.error(err);

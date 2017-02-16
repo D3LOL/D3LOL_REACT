@@ -6,7 +6,6 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { axiosGet } from '../actions';
 
-import searchUser from '../lib/searchUser';
 import UserList from './UserListComponent';
 
 
@@ -18,13 +17,12 @@ class SearchComponent extends React.Component {
 		this.handleClick = this.handleClick.bind(this)
 	}
 
-<<<<<<< HEAD
+
 	handleClick(){
 		this.props.searchUser(this.textInput.value);
-=======
-		searchUser(this.textInput.value);
+
+
 		
->>>>>>> test naver login
 	}
 
   render() {
@@ -36,25 +34,9 @@ class SearchComponent extends React.Component {
 			</div>	
 				<input ref={textRef => this.textInput = textRef} type="text" placeholder="유저 닉네임...유저 닉네임...유저 닉네임...유저 닉네임...검색..." />
 				<button onClick={this.handleClick.bind(this)}>Click</button>
-<<<<<<< HEAD
-		
-			<div className="userContainer">
-				<div className="userStack">
-					<p> stack.playerOrTeamName </p>
-					<p> stack.leaguePoints </p>
-				</div>
-				<div className="userStack">
-					<p> stack.wins </p>
-					<p> stack.losses </p>
-				</div>
-				<div className="userStack">
-					 stack.division 
-				</div>
-			</div>
-=======
 				
 				<UserList/>
->>>>>>> test naver login
+
 			</div>
     );
   }
@@ -67,7 +49,7 @@ function dispatchTo(dispatch) {
     searchUser: (query) => dispatch(axiosGet(query))
   }
 }
-
+	
 
 SearchComponent.displayName = 'SearchComponent';
 export default connect(undefined, dispatchTo)(SearchComponent);
