@@ -2,14 +2,19 @@
 
 import React from 'react';
 import axios from 'axios';
-import searchUser from '../lib/searchUser';
+import { connect } from 'react-redux';
+import { axiosGet } from '../actions';
 
 require('../styles/Search.css');
 
 class SearchComponent extends React.Component {
-	handleClick(){
+	constructor(props) {
+		super(props);
+		this.handleClick = this.handleClick.bind(this)
+	}
 
-		searchUser(this.textInput.value);
+	handleClick(){
+		this.props.searchUser(this.textInput.value);
 	}
 
   render() {
@@ -18,13 +23,10 @@ class SearchComponent extends React.Component {
     	<div>
       <div className="logo">
 				<img src="./img/logo.png"/>
-			</div>
-
-			
+			</div>	
 				<input ref={textRef => this.textInput = textRef} type="text" placeholder="유저 닉네임...유저 닉네임...유저 닉네임...유저 닉네임...검색..." />
 				<button onClick={this.handleClick.bind(this)}>Click</button>
-			
-
+		
 			<div className="userContainer">
 				<div className="userStack">
 					<p> stack.playerOrTeamName </p>
@@ -43,10 +45,18 @@ class SearchComponent extends React.Component {
   }
 }
 
+
+
+function dispatchTo(dispatch) {
+  return {
+    searchUser: (query) => dispatch(axiosGet(query))
+  }
+}
+
+
 SearchComponent.displayName = 'SearchComponent';
+export default connect(undefined, dispatchTo)(SearchComponent);
 
-// Uncomment properties you need
-// SearchComponent.propTypes = {};
-// SearchComponent.defaultProps = {};
 
-export default SearchComponent;
+
+
