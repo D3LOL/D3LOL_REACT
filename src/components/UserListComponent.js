@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
+import { axiosGet } from '../actions';
+import { connect } from 'react-redux';
 
 require('../styles/UserList.css');
 
@@ -9,20 +11,28 @@ class UserListComponent extends React.Component {
     return (
       <div className="userContainer">
 				<div className="userStack">
-					<p> stack.playerOrTeamName </p>
-					<p> stack.leaguePoints </p>
+					<p> USERNAME </p>
+					<p ref={idRef => this.userid = idRef}>{this.props.user.name}</p>
 				</div>
 				<div className="userStack">
-					<p> stack.wins </p>
-					<p> stack.losses </p>
+					<p> LEVEL </p>
+					<p> {this.props.user.summonerLevel} </p>
 				</div>
 				<div className="userStack">
-					 stack.division 
+					 
 				</div>
 			</div>
     );
   }
 }
+
+function mapStateToProps(state) {
+		return {
+				user: state.searchuser.data
+		}
+}
+
+
 
 UserListComponent.displayName = 'UserListComponent';
 
@@ -30,4 +40,4 @@ UserListComponent.displayName = 'UserListComponent';
 // UserListComponent.propTypes = {};
 // UserListComponent.defaultProps = {};
 
-export default UserListComponent;
+export default connect(mapStateToProps)(UserListComponent);
