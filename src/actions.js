@@ -3,6 +3,21 @@ export const REQUEST_USER = "request_user";
 export const RECEIVE_USER = "receive_user";
 export const FAILGET_USER = "failget_user";
 import axios from 'axios';
+
+
+export function pass(infor){
+	return {
+		type: "PASS",
+		token: infor
+	}
+}
+
+export function notpass(infor){
+	return {
+		type: "NOTPASS"
+	}
+}
+
 export function onePlus(value){
   return {
     type: ONE_PLUS,

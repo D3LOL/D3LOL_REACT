@@ -3,13 +3,39 @@ import './actions'
 const ONE_PLUS = "one";
 const REQUEST_USER = "request_user";
 const RECEIVE_USER = "receive_user";
-const FAILGET_USER = "failget_user"
+const FAILGET_USER = "failget_user";
+
+var authState = {
+  auth: false,
+  token: null
+}
+
+function Auth (state = authState, action) {
+
+  switch(action.type) {
+    case "PASS":
+      return Object.assign({}, state, {
+        auth: true,
+        token: action.token
+      })
+    case "NOTPASS":
+      return Object.assign({}, state, {
+        auth: false
+      })
+    default: 
+      return state
+  }
+
+
+}
+
+
 var initState = {
   data: 1,
   value: 2
 }
 
-function test (state = initState, action)  {
+function test (state = initState, action) {
 
   switch(action.type) {
     case "one":
@@ -50,6 +76,7 @@ function searchuser (state = searchState, action) {
 }
 
 const reducers = combineReducers({
+  Auth,
   test,
   searchuser
 });
