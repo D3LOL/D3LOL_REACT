@@ -18,6 +18,7 @@ class SearchComponent extends React.Component {
 
 	handleClick(){
 		this.props.searchUser(this.textInput.value);
+
 	}
 
   render() {
