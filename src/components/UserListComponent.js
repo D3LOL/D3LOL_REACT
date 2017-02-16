@@ -18,9 +18,6 @@ class UserListComponent extends React.Component {
 					<p> LEVEL </p>
 					<p> {this.props.user.summonerLevel} </p>
 				</div>
-				<div className="userStack">
-					 
-				</div>
 			</div>
     );
   }

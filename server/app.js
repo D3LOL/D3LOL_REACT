@@ -8,6 +8,7 @@ const helmet = require('helmet');
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy
 const searchRouter = require('./routers/search.js');
+const rankRouter = require('./routers/rank.js');
 const authRouter = require('./routers/auth.js');
 
 //passport 
@@ -34,11 +35,8 @@ passport.deserializeUser(function(obj, cb) {
 
 //Express
 
-
 const app = express();
 const router = express.Router();
-
-
 
 app.use(bodyParser.json());
 
@@ -53,7 +51,11 @@ app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 // Search Router
 app.use('/api/search', searchRouter);
+
+app.use('/api/rank', rankRouter);
+
 app.use('/login', authRouter);
+
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.

@@ -70,3 +70,26 @@ export function axiosGet(query){
 	}
 
 }
+
+export function receiveChamp(res){
+	return {
+		type: "RECEIVE_CHAMP"
+	}
+}
+
+export function getChamp(res){
+	return function(dispatch){
+		
+		dispatch(requestUser())
+
+		return axios.get('/api/search', { params: { username: query } })
+      			.then(res => {
+   				   	console.log(res)
+        			dispatch(receiveUser(res.data))
+      			})
+      			.catch(err => {
+        			console.error(err);
+      			})
+	}
+
+}
