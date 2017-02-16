@@ -26,6 +26,7 @@ var searchState = {
   status: "", 
   data: ""
 }
+
 function searchuser (state = searchState, action) {
   switch(action.type) {
     case REQUEST_USER:
