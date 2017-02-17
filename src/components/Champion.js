@@ -48,8 +48,8 @@ class Champion extends React.Component {
             <h4>{ this.props.data.title }</h4>
             <h3>Descripition</h3>
             <p>{ this.props.data.lore }</p>
-            <h3>Stats</h3>
-            { mapToSpells(this.props.data.spell) }
+            <h3>Spells</h3>
+            <div>{ mapToSpells(this.props.data.spells) }</div>
           </Modal.Body>
           <Modal.Footer>
             <button onClick={this.close}>Close</button>

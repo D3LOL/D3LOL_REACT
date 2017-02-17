@@ -24,7 +24,6 @@ class ChampionComponent extends React.Component {
  
     const mapToComponents = data => {
       return data.map((championdata, i) => {
-        console.log(championdata);
         return (<Champion
           data={ championdata }
         />);

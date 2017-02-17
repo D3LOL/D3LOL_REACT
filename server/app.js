@@ -57,12 +57,11 @@ app.use(express.static(path.resolve(__dirname, '..', 'build')));
 app.use('/api/search', searchRouter);
 app.use('/api/rank', rankRouter);
 app.use('/api/login', authRouter);
+app.use('/api/champion', championRouter);
  
 app.use('*', function(req, res, next){
   res.redirect('/#/notFound')
 });
-
-app.use('/api/champion', championRouter);
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
