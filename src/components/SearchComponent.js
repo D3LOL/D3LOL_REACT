@@ -39,7 +39,7 @@ class SearchComponent extends React.Component {
 
 function dispatchTo(dispatch) {
   return {
-    searchUser: (query) => dispatch(axiosGet())
+    searchUser: (query) => dispatch(axiosGet(query))
   }
 }
 
