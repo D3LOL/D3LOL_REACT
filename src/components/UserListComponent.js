@@ -1,26 +1,39 @@
 import React from 'react';
+import { Button, Modal, Popover } from 'react-bootstrap';
+import $ from 'jquery';
+import eg from 'egjs';
 
 
 require('../styles/UserList.css');
 
 class UserListComponent extends React.Component {
+	componentDidMount() {
+		// $("#flickingtest").flicking({
+		//   duration: 300,
+		//   circular: true,
+		//   defaultIndex: 1
+		// });
+
+		// // new eg.Flicking("#flickingtest", {
+		// //   duration: 300,
+		// //   circular: true,
+		// //   defaultIndex: 1
+		// // });
+
+	}	
+
   render() {
   	
 
     return (
-      <div className="userContainer">
-      	<div claasName="userStack">
+    	<div id="flickingtest">
+      <div className="col-md-3 userList">
+      	
       		<img src={`http://ddragon.leagueoflegends.com/cdn/7.3.3/img/profileicon/${this.props.data.profileIconId}.png`} />
-      	</div>
-				<div className="userStack">
-					<p> USERNAME </p>
-					{/*<p ref={idRef => this.userid = idRef}>공백</p>*/}
-					<p>{ this.props.data.name }</p>
-				</div>
-				<div className="userStack">
-					<p> LEVEL </p>
-					<p>{ this.props.data.summonerLevel }</p>
-				</div>
+      		<div>{ this.props.data.name }</div>
+        	<div>{ this.props.data.summonerLevel }</div>
+				
+			</div>
 			</div>
     );
   }

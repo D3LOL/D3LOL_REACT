@@ -66,7 +66,7 @@ function searchuser (state = searchState, action) {
 
 var rankState = { 
   status: '',
-  data: [ {playerOrTeamName: 'HEY', leaguePoints: 0, win:0, losses:0 }]
+  data: [ {playerOrTeamName: 'HEY', leaguePoints: 0, wins:0, losses:0 }]
 }
 
 function getRank (state = rankState, action) {
