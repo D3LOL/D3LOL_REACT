@@ -18,6 +18,12 @@ export function pass(infor){
 	}
 }
 
+export function testpass(infor){
+	return {
+		type: "TESTPASS"
+	}
+}
+
 export function notpass(infor){
 	return {
 		type: "NOTPASS"
