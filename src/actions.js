@@ -46,11 +46,11 @@ export function receiveUser(res){
 	}
 }
 
-export function failgetUser(){
+export function failgetUser(err){
 	return {
 		type: FAILGET_USER,
 		status: "FAIL",
-		data: "ERR"
+		data: err
 	}
 }
 
@@ -65,7 +65,7 @@ export function axiosGet(query){
         			dispatch(receiveUser(res.data))
       			})
       			.catch(err => {
-        			console.error(err);
+        			dispatch(failgetUser(err));
       			})
 	}
 
@@ -77,19 +77,19 @@ export function receiveChamp(res){
 	}
 }
 
-export function getChamp(res){
-	return function(dispatch){
+// export function getChamp(res){
+// 	return function(dispatch){
 		
-		dispatch(requestUser())
+// 		dispatch(requestUser())
 
-		return axios.get('/api/search', { params: { username: query } })
-      			.then(res => {
-   				   	console.log(res)
-        			dispatch(receiveUser(res.data))
-      			})
-      			.catch(err => {
-        			console.error(err);
-      			})
-	}
+// 		return axios.get('/api/search', { params: { username: query } })
+//       			.then(res => {
+//    				   	console.log(res)
+//         			dispatch(receiveUser(res.data))
+//       			})
+//       			.catch(err => {
+//         			console.error(err);
+//       			})
+// 	}
 
-}
+// }

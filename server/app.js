@@ -10,12 +10,13 @@ const FacebookStrategy = require('passport-facebook').Strategy
 const searchRouter = require('./routers/search.js');
 const rankRouter = require('./routers/rank.js');
 const authRouter = require('./routers/auth.js');
+// const ensureLoggedIn = require('connect-ensure-login')
 
 //passport 
 
 passport.use(new FacebookStrategy({
     clientID: 183216738826974,
-    clientSecret: 8b227a26867fdc7ce8cc43f6a989733f,
+    clientSecret: '8b227a26867fdc7ce8cc43f6a989733f',
     callbackURL: "http://localhost:3000/auth/facebook/return"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -35,7 +36,6 @@ passport.deserializeUser(function(obj, cb) {
 
 //Express
 
-const rankRouter = require('./routers/rank.js');
 const app = express();
 const router = express.Router();
 
@@ -55,18 +55,18 @@ app.use('/api/search', searchRouter);
 
 app.use('/api/rank', rankRouter);
 
-app.use('/login', authRouter);
+app.use('/api/login', authRouter);
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/',
-	ensureLoggedIn('/login'),
-	function(req, res) {
-	  res.render('settings', { user: req.user });
-	});
+// app.get('/',
+// 	// ensureLoggedIn('/login'),
+// 	function(req, res) {
+// 	  res.render('settings', { user: req.user });
+// 	});
 
 // Always return the main index.html, so react-router render the route in the client
 // app.get('*', (req, res) => {
