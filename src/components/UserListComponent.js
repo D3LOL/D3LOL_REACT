@@ -1,32 +1,29 @@
-'use strict';
-
 import React from 'react';
-import { axiosGet } from '../actions';
-import { connect } from 'react-redux';
+
 
 require('../styles/UserList.css');
 
 class UserListComponent extends React.Component {
   render() {
+  	
+
     return (
       <div className="userContainer">
+      	<div claasName="userStack">
+      		<img src={`http://ddragon.leagueoflegends.com/cdn/7.3.3/img/profileicon/${this.props.data.profileIconId}.png`} />
+      	</div>
 				<div className="userStack">
 					<p> USERNAME </p>
-					<p ref={idRef => this.userid = idRef}>{this.props.user.name}</p>
+					{/*<p ref={idRef => this.userid = idRef}>공백</p>*/}
+					<p>{ this.props.data.name }</p>
 				</div>
 				<div className="userStack">
 					<p> LEVEL </p>
-					<p> {this.props.user.summonerLevel} </p>
+					<p>{ this.props.data.summonerLevel }</p>
 				</div>
 			</div>
     );
   }
-}
-
-function mapStateToProps(state) {
-		return {
-				user: state.searchuser.data
-		}
 }
 
 
@@ -37,4 +34,4 @@ UserListComponent.displayName = 'UserListComponent';
 // UserListComponent.propTypes = {};
 // UserListComponent.defaultProps = {};
 
-export default connect(mapStateToProps)(UserListComponent);
+export default UserListComponent;

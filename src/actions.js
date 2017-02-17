@@ -79,23 +79,25 @@ export function axiosGet(query){
 
 export function receiveChamp(res){
 	return {
-		type: "RECEIVE_CHAMP"
+		type: "RECEIVE_CHAMP",
+		status: 'SUCCESS',
+		data: res
 	}
 }
 
-// export function getChamp(res){
-// 	return function(dispatch){
+export function getChamp(){
+	return function(dispatch){
 		
-// 		dispatch(requestUser())
+		dispatch(requestUser())
 
-// 		return axios.get('/api/search', { params: { username: query } })
-//       			.then(res => {
-//    				   	console.log(res)
-//         			dispatch(receiveUser(res.data))
-//       			})
-//       			.catch(err => {
-//         			console.error(err);
-//       			})
-// 	}
+		return axios.get('/api/rank')
+      			.then(res => {
+   				   	console.log(res)
+        			dispatch(receiveChamp(res.data))
+      			})
+      			.catch(err => {
+        			dispatch(failgetUser(err));
+      			})
+	}
 
-// }
+}
