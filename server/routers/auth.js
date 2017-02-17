@@ -4,9 +4,7 @@ const router = express.Router();
 const qs = require('qs');
 const passport = require('passport');
 
-router.get('/login',
-	
-	)
+// router.get('/login',)
 //login with facebook ID
 router.get('/facebook',
 		passport.authenticate('facebook'));

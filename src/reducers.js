@@ -7,7 +7,7 @@ const FAILGET_USER = "failget_user";
 
 
 var authState = {
-  auth: true,
+  auth: false,
   token: null
 }
 

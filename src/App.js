@@ -1,6 +1,6 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory, IndexRoute, IndexRedirect, Redirect } from 'react-router';
+import { Router, Route, browserHistory, hashHistory, IndexRoute, IndexRedirect, Redirect } from 'react-router';
 import Header from './Header';
 import Login from './login/login.js'
 import SearchComponent from './components/SearchComponent';
@@ -35,14 +35,6 @@ const Temp = (props) => (
       </div>
 )
 
-const RedirectLogin = (props) => (
-      <div>
-      {props.children}
-      </div>
-)
-  
-
-
 
 class App extends React.Component {
 
@@ -51,18 +43,23 @@ class App extends React.Component {
   render(){
     return (
          <Provider store={store}>
-           <Router history={browserHistory}>
+           <Router history={hashHistory}>
              <Route path='/' component={Temp}>
                <IndexRedirect to="/login" />
-               <Route path='/login' component={Login} />
-               <Route path={store.getState().Auth.auth ? '/main' : '/login'} component={Header} />
-               <Route path={store.getState().Auth.auth ? '/search' : '/login'} component={SearchComponent} />
-               <Route path={store.getState().Auth.auth ? '/rank' : '/login'} component={RankComponent} />
-               <Route path={store.getState().Auth.auth ? '/champion' : '/login'} component={ChampionComponent} />
-               <Route path={store.getState().Auth.auth ? '/multiSearch' : '/login'} component={MultiSearchComponent} />
-               <Route path='*' component={Login} />
-               <Route path='/login' component={Login} />
+               <Route path='/login' component={store.getState().Auth.auth ? Header : Login} />
+               <Route path={store.getState().Auth.auth ? '/main' : '/login'} component={Header} >
+                   <Route path={store.getState().Auth.auth ? '/search' : '/login'} component={SearchComponent} />
+                   <Route path={store.getState().Auth.auth ? '/rank' : '/login'} component={RankComponent} />
+                   <Route path={store.getState().Auth.auth ? '/champion' : '/login'} component={ChampionComponent} />
+                   <Route path={store.getState().Auth.auth ? '/multiSearch' : '/login'} component={MultiSearchComponent} />
+                            
+
+               </Route>
+                         
+
              </Route>
+                <Redirect from='*' to='/login' />
+
            </Router>
          </Provider>
       )
