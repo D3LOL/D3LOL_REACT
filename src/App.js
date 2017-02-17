@@ -59,7 +59,6 @@ class App extends React.Component {
       )
   }
 
-  
 }
 
 var stateTo = function(state){
