@@ -31,26 +31,6 @@ function Auth (state = authState, action) {
       return state
   }
 
-
-}
-
-
-var initState = {
-  data: 1,
-  value: 2
-}
-
-function test (state = initState, action) {
-
-  switch(action.type) {
-    case "one":
-      return Object.assign({}, state, {
-        data: state.data + 1,
-        value: state.value + 1
-      });
-    default:
-      return state
-  }
 }
 
 var searchState = {
@@ -82,7 +62,6 @@ function searchuser (state = searchState, action) {
 
 const reducers = combineReducers({
   Auth,
-  test,
   searchuser
 });
 
