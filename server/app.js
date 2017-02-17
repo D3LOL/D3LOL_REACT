@@ -12,6 +12,7 @@ const rankRouter = require('./routers/rank.js');
 const authRouter = require('./routers/auth.js');
 const championRouter = require('./routers/champion.js');
 
+
 mongoose.connect('mongodb://localhost/d3lol');
 
 //passport 

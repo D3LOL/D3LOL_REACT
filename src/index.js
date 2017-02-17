@@ -7,6 +7,11 @@ import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger';
 import promiseMiddleware from 'redux-promise';
 import { createStore, applyMiddleware, compose } from 'redux';
+import $ from 'jquery';
+
+
+
+
 
 const rootElement = document.getElementById('root');
 
