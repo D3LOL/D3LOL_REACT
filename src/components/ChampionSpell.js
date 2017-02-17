@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Modal, Popover } from 'react-bootstrap';
 
 class ChampionSpell extends React.Component {
   constructor(props) {

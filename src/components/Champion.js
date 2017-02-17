@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, Popover } from 'react-bootstrap';
 import ChampionSpell from './ChampionSpell.js'
 
 class Champion extends React.Component {
