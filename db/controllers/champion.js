@@ -6,8 +6,8 @@ function findAll(callback) {
 }
 
 // `insertOne`은 Champion을 db에 insert 합니다.
-function insertOne(story, callback) {
-  ChampionModel.create(story, callback);
+function insertOne(champion, callback) {
+  ChampionModel.create(champion, callback);
 }
 
 exports.findAll = findAll;

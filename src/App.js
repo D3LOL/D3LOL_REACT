@@ -49,7 +49,7 @@ class App extends React.Component {
   render(){
     return (
          <Provider store={store}>
-           <Router history={browserHistory}>
+           <Router history={hashHistory}>
              <Route path='/' component={Temp}>
                <IndexRedirect to="/login" />
 

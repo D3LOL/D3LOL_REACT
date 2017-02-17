@@ -10,7 +10,9 @@ const FacebookStrategy = require('passport-facebook').Strategy
 const searchRouter = require('./routers/search.js');
 const rankRouter = require('./routers/rank.js');
 const authRouter = require('./routers/auth.js');
-// const ensureLoggedIn = require('connect-ensure-login')
+const championRouter = require('./routers/champion.js');
+
+mongoose.connect('mongodb://localhost/d3lol');
 
 //passport 
 
@@ -53,14 +55,14 @@ app.use(express.static(path.resolve(__dirname, '..', 'build')));
 // Search Router
 
 app.use('/api/search', searchRouter);
-
 app.use('/api/rank', rankRouter);
-
 app.use('/api/login', authRouter);
  
 app.use('*', function(req, res, next){
   res.redirect('/#/notFound')
 });
+
+app.use('/api/champion', championRouter);
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
@@ -68,7 +70,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // app.get('/',
-// 	// ensureLoggedIn('/login'),
 // 	function(req, res) {
 // 	  res.render('settings', { user: req.user });
 // 	});
