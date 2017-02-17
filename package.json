@@ -28,6 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start:server": "node ./server/index.js",
+    "rock": "npm run build && npm run start:server",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
