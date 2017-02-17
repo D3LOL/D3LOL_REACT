@@ -23,6 +23,10 @@ function Auth (state = authState, action) {
       return Object.assign({}, state, {
         auth: false
       })
+    case "TESTPASS":
+      return Object.assign({}, state, {
+        auth: !state.auth
+      })
     default: 
       return state
   }

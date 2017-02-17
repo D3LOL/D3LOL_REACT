@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Testauth from '../components/TEST'
 import './css/style.css'
 class Login extends Component {
 
@@ -43,6 +44,7 @@ class Login extends Component {
 					<input type="text" onChange={(e)=>{this.changename.bind(this)(e)}} placeholder="username" name="user" /><br />
 					<input type="password" onChange={(e)=>{this.changepassword.bind(this)(e)}} placeholder="password" name="password" /><br />
 					<input type="button" value="Login" onClick={this.detectpassword.bind(this)}/>
+          <Testauth />
 			</div>
 		</div>
 	  </div>

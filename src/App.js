@@ -3,6 +3,7 @@ import React from 'react';
 import { Router, Route, browserHistory, hashHistory, IndexRoute, IndexRedirect, Redirect } from 'react-router';
 import Header from './Header';
 import Login from './login/login.js'
+import Testauth from './components/TEST'
 import SearchComponent from './components/SearchComponent';
 import RankComponent from './components/RankComponent';
 import ChampionComponent from './components/ChampionComponent';
@@ -32,8 +33,16 @@ const Temp = (props) => (
       <div>
       {console.log(store.getState().Auth.auth)}
       {props.children}
+      <Testauth />
       </div>
 )
+
+const notFound = (props) => (
+      <div>
+      "NotFound"
+      </div>
+)
+
 
 
 class App extends React.Component {
@@ -43,23 +52,21 @@ class App extends React.Component {
   render(){
     return (
          <Provider store={store}>
-           <Router history={hashHistory}>
+           <Router history={browserHistory}>
              <Route path='/' component={Temp}>
                <IndexRedirect to="/login" />
-               <Route path='/login' component={store.getState().Auth.auth ? Header : Login} />
+
+               <Route path={!store.getState().Auth.auth ? '/login' : ''} component={Login} />
                <Route path={store.getState().Auth.auth ? '/main' : '/login'} component={Header} >
                    <Route path={store.getState().Auth.auth ? '/search' : '/login'} component={SearchComponent} />
                    <Route path={store.getState().Auth.auth ? '/rank' : '/login'} component={RankComponent} />
                    <Route path={store.getState().Auth.auth ? '/champion' : '/login'} component={ChampionComponent} />
                    <Route path={store.getState().Auth.auth ? '/multiSearch' : '/login'} component={MultiSearchComponent} />
-                            
-
                </Route>
-                         
-
              </Route>
-                <Redirect from='*' to='/login' />
-
+                <Route path={'/notFound'} component={notFound} />
+                <Redirect from={store.getState().Auth.auth ? '/login' : ''} to={'/main'} />
+                <Redirect from='*' to={'/notFound'} />
            </Router>
          </Provider>
       )

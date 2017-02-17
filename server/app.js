@@ -51,11 +51,16 @@ app.use(helmet());
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 // Search Router
+
 app.use('/api/search', searchRouter);
 
 app.use('/api/rank', rankRouter);
 
 app.use('/api/login', authRouter);
+ 
+app.use('*', function(req, res, next){
+  res.redirect('/#/notFound')
+});
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
