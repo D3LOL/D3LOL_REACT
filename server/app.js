@@ -57,9 +57,9 @@ app.use('/api/search', searchRouter);
 app.use('/api/rank', rankRouter);
 
 app.use('/api/login', authRouter);
- 
 app.use('*', function(req, res, next){
-  res.redirect('/#/notFound')
+  console.log(req)
+  res.redirect('/#')
 });
 
 // Initialize Passport and restore authentication state, if any, from the
