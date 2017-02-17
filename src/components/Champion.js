@@ -46,7 +46,7 @@ class Champion extends React.Component {
           <Modal.Body>
             <h4>{ this.props.data.title }</h4>
             <h3>Descripition</h3>
-            <p>{ this.props.data.lore }</p>
+            <p dangerouslySetInnerHTML={{__html: this.props.data.lore}}></p>
             <h3>Spells</h3>
             <div>{ mapToSpells(this.props.data.spells) }</div>
           </Modal.Body>

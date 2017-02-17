@@ -23,15 +23,13 @@ class RankComponent extends React.Component {
   render() {
   	
 
-    const mapToComponents = data => {
-    	data.sort((a, b) => b.leaguePoints - a.leaguePoints)
-      return data.map((rankdata, i) => {
-        console.log(rankdata);
-        return (<RankList
-        	key={i}
+    const mapToComponents = rankdata => {
+    	rankdata.sort((a, b) => b.leaguePoints - a.leaguePoints);
+      return (
+        <RankList
           data={ rankdata }
-        />);
-      })
+        />
+      )
     }
     
 

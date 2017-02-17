@@ -22,6 +22,9 @@ class SearchComponent extends React.Component {
 
 	}
 
+	componentDidMount() {
+		
+	}
 
 
   render() {
@@ -44,7 +47,7 @@ class SearchComponent extends React.Component {
 
         <input ref={textRef => this.textInput = textRef} type="text" placeholder="유저 닉네임...유저 닉네임...유저 닉네임...유저 닉네임...검색..." />
         <button onClick={this.handleClick.bind(this)}>Click</button>
-        <div>
+        <div className='userList'>
         	{mapToComponents(this.props.user)}
         </div>
       </div>	

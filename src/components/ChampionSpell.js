@@ -18,10 +18,10 @@ class ChampionSpell extends React.Component {
 
     const popover = (
       <Popover id="modal-popover" title={this.state.spellName}>
-        <p>{this.state.spellDesc}</p>
+        <p dangerouslySetInnerHTML={{__html: this.state.spellDesc }}></p>
         <p>소모: {this.state.costType + ' ' + this.state.costBurn}</p>
         <p>범위: {this.state.range}</p>
-        <p>{this.state.spellTooltip}</p>
+        <p dangerouslySetInnerHTML={{__html: this.state.spellTooltip }}></p>
       </Popover>
     );
 

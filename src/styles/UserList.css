@@ -1,3 +1,8 @@
 .userlist-component {
   border: 1px dashed #f00;
 }
+
+.userList {
+	top: 100px;
+	margin-bottom: 20px;
+}
