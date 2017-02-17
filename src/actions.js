@@ -67,6 +67,7 @@ export function axiosGet(query){
 
 		return axios.get('/api/search', { params: { username: query } })
       			.then(res => {
+      				console.log(query)
    				   	console.log(res)
         			dispatch(receiveUser(res.data))
       			})

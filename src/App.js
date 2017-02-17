@@ -5,6 +5,7 @@ import Header from './Header';
 import Login from './login/login.js'
 
 import SearchComponent from './components/SearchComponent';
+// import Chat from './components/SearchComponent';
 import RankComponent from './components/RankComponent';
 import ChampionComponent from './components/ChampionComponent';
 import MultiSearchComponent from './components/MultiSearchComponent';
@@ -51,6 +52,7 @@ class App extends React.Component {
               <Route path='rank' component={RankComponent} />
               <Route path='champion' component={ChampionComponent} />
               <Route path='multiSearch' component={MultiSearchComponent} />
+          
               <Route path='notFound' component={notFound} />
               <Redirect from='*' to='notFound' />
              </Route> 
@@ -60,7 +62,7 @@ class App extends React.Component {
   }
 
 }
-
+    // <Route path='chat' component={Chat} />
 var stateTo = function(state){
   return {
     auth : state.Auth.auth

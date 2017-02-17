@@ -12,6 +12,7 @@
     "connect-ensure-login": "^0.1.1",
     "express": "^4.14.1",
     "helmet": "^3.4.0",
+    "http": "0.0.0",
     "jquery": "^3.1.1",
     "mongoose": "^4.8.2",
     "morgan": "^1.8.1",
@@ -25,7 +26,8 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
     "redux-promise": "^0.5.3",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "socket.io": "^1.7.3"
   },
   "scripts": {
     "start": "react-scripts start",
