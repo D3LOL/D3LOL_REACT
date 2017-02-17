@@ -1,10 +1,11 @@
-'use strict';
 
 import React from 'react';
-import axios from 'axios';
 
 import { connect } from 'react-redux';
 import { axiosGet } from '../actions';
+import eg from 'egjs';
+import $ from 'jquery';
+
 
 import UserList from './UserListComponent';
 
@@ -21,19 +22,40 @@ class SearchComponent extends React.Component {
 
 	}
 
+
+
   render() {
+
+    const mapToComponents = data => {
+      return data.map((championdata, i) => {
+        console.log(championdata);
+        return (<UserList
+        	key={i}
+          data={ championdata }
+        />);
+      })
+    }
+
     return (
     	<div>
      		<div className="logo">
-    			<img src="./img/logo.png"/>
+    			<img role='presentation' src="./img/logo.png"/>
   			</div>
 
         <input ref={textRef => this.textInput = textRef} type="text" placeholder="유저 닉네임...유저 닉네임...유저 닉네임...유저 닉네임...검색..." />
         <button onClick={this.handleClick.bind(this)}>Click</button>
-        <UserList/>
+        <div>
+        	{mapToComponents(this.props.user)}
+        </div>
       </div>	
     );
   }
+}
+
+function mapStateToProps(state) {
+		return {
+				user: state.searchuser.data
+		}
 }
 
 
@@ -45,7 +67,7 @@ function dispatchTo(dispatch) {
 
 
 SearchComponent.displayName = 'SearchComponent';
-export default connect(undefined, dispatchTo)(SearchComponent);
+export default connect(mapStateToProps, dispatchTo)(SearchComponent);
 
 
 

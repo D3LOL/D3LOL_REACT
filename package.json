@@ -10,6 +10,7 @@
     "body-parser": "^1.16.1",
     "classnames": "^2.2.5",
     "connect-ensure-login": "^0.1.1",
+    "egjs": "^1.4.1",
     "express": "^4.14.1",
     "helmet": "^3.4.0",
     "jquery": "^3.1.1",
