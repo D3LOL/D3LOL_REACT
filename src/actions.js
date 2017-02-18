@@ -89,13 +89,7 @@ export function receiveChamp(res){
 
 export function getChamp(){
 	return function(dispatch){
-//SIGN IN MODALS
-export function modalSignIn(){
-	return {
-		type: SOCIAL_SIGN_IN,
-		currentModal: "signIn",
-	}
-}
+
 
 		dispatch(requestUser())
 

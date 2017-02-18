@@ -12,31 +12,9 @@ const searchRouter = require('./routers/search.js');
 const rankRouter = require('./routers/rank.js');
 const championRouter = require('./routers/champion.js');
 
-
-mongoose.connect('mongodb://localhost/d3lol');
-
 //passport 
 
-passport.use(new FacebookStrategy({
-    clientID: 183216738826974,
-    clientSecret: '8b227a26867fdc7ce8cc43f6a989733f',
-    callbackURL: "http://localhost:3000/auth/facebook/return"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
 
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-const authRouter = require('./routers/auth.js');
-const flash = require('connect-flash');
-
-
-//Express
 const app = express();
 const router = express.Router();
 
@@ -48,7 +26,7 @@ require('./passport')(passport);
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(flash())
+// app.use(flash())
 // Protect XSS
 app.use(helmet());
 app.use(session({
