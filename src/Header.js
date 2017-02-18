@@ -9,9 +9,7 @@ class Header extends Component {
     return (
       <div className="App">
         <div className="container">
-          
           <nav className="navbar navbar-inverse">
-            
             <ul className="nav navbar-nav">
               <li><Link to="/search">검색</Link></li>
               <li><Link to="/rank">랭킹</Link></li>

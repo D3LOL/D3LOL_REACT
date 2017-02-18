@@ -38,7 +38,6 @@ passport.deserializeUser(function(obj, cb) {
 });
 
 //Express
-
 const app = express();
 const router = express.Router();
 
@@ -53,8 +52,7 @@ app.use(helmet());
 // Serve static assets
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-// Search Router
-
+// Search Routerß
 app.use('/api/search', searchRouter);
 app.use('/api/rank', rankRouter);
 app.use('/api/login', authRouter);
