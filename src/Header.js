@@ -18,6 +18,7 @@ class Header extends Component {
               <li><Link to="/champion">챔피언</Link></li>
               <li><Link to="/multiSearch">멀티서치</Link></li>
               <li><Link to="/login">로그인</Link></li>
+              <li><Link to="/Chat">Chat</Link></li>
         
             </ul>
           </nav>
