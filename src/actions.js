@@ -2,6 +2,7 @@ export const ONE_PLUS = "one";
 export const REQUEST_USER = "request_user";
 export const RECEIVE_USER = "receive_user";
 export const FAILGET_USER = "failget_user";
+export const SOCIAL_SIGN_IN = "social_sign_in"
 import axios from 'axios';
 
 // export function userList(user){
@@ -88,7 +89,8 @@ export function receiveChamp(res){
 
 export function getChamp(){
 	return function(dispatch){
-		
+
+
 		dispatch(requestUser())
 
 		return axios.get('/api/rank')

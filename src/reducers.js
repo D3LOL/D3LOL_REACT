@@ -3,16 +3,18 @@ import './actions'
 const REQUEST_USER = "request_user";
 const RECEIVE_USER = "receive_user";
 const FAILGET_USER = "failget_user";
+const SOCIAL_SIGN_IN = "social_sign_in"
 
 
 var authState = {
-  auth: true,
-  token: null
+  auth: false,
+  token: null,
 }
 
 function Auth (state = authState, action) {
 
   switch(action.type) {
+    
     case "PASS":
       return Object.assign({}, state, {
         auth: true,
@@ -92,9 +94,25 @@ function getRank (state = rankState, action) {
     }
 }
 
+var modalState = {
+    currentModal: null
+}
+
+
+function modals (state = modalState, action) {
+  switch(action.type) {
+    case SOCIAL_SIGN_IN:
+      return Object.assign({}, state, {
+          currentModal: action.currentModal
+        })
+    default:
+      return state
+  }
+}
 const reducers = combineReducers({
   Auth,
   searchuser,
+  modals,
   getRank
 });
 
