@@ -5,6 +5,7 @@ var championSchema = mongoose.Schema({
   key: String,
   name: String,
   title: String,
+  skins: [],
   info: {
     attack: Number,
     defense: Number,

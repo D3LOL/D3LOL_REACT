@@ -45,7 +45,7 @@ class SearchComponent extends React.Component {
     			<img role='presentation' src="./img/logo.png"/>
   			</div>
 
-        <input ref={textRef => this.textInput = textRef} type="text" placeholder="유저 닉네임...유저 닉네임...유저 닉네임...유저 닉네임...검색..." />
+        <input className="search-input" ref={textRef => this.textInput = textRef} type="text" placeholder="유저 닉네임...유저 닉네임...유저 닉네임...유저 닉네임...검색..." />
         <button onClick={this.handleClick.bind(this)}>Click</button>
         <div className='userList'>
         	{mapToComponents(this.props.user)}
