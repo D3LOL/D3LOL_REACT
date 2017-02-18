@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> champion component update
 import React from 'react';
 import { Button, Modal, Table } from 'react-bootstrap';
 import ChampionSpell from './ChampionSpell.js'
@@ -133,13 +130,7 @@ class Champion extends React.Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-<<<<<<< HEAD
-            <h4>{ this.props.data.title }</h4>
-            <h3>Descripition</h3>
-            <p dangerouslySetInnerHTML={{__html: this.props.data.lore}}></p>
-            <h3>Spells</h3>
-            <div>{ mapToSpells(this.props.data.spells) }</div>
-=======
+
             <img style={champModalPic} src={"http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + this.props.data.key + "_0.jpg"} />
             <h3 style={alignLeft}>기본 스탯</h3>
             { championStatView }
@@ -151,7 +142,7 @@ class Champion extends React.Component {
             <div style={champModalPic}>
               { mapToSkins(this.props.data.skins) }
             </div>
->>>>>>> champion component update
+
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Close</Button>
