@@ -97,6 +97,10 @@ class SearchComponent extends React.Component {
 
     return (
     	<div>
+        <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+        <a href="/test" class="btn btn-primary"><span class="fa fa-facebook"></span> test</a>
+        <a href="/logout" class="btn btn-primary"><span class="fa fa-facebook"></span> test</a>
+
      		<div className="logo">
     			<img role='presentation' src="./img/logo.png"/>
   			</div>
