@@ -23,6 +23,11 @@ class Header extends Component {
               <li><Link to="/rank">랭킹</Link></li>
               <li><Link to="/champion">챔피언</Link></li>
               <li><Link to="/multiSearch">멀티서치</Link></li>
+
+              <li><Link to="/login">로그인</Link></li>
+              <li><Link to="/Chat">Chat</Link></li>
+        
+
               <li>
                 <Portal closeOnEsc closeOnOutsideClick openByClickOn={this.logInButton()}>
                  <div className="modalbox">
