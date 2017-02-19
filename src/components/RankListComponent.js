@@ -76,7 +76,7 @@ class RankListComponent extends React.Component {
       enableSelectAll: false,
       deselectOnClickaway: true,
       showCheckboxes: true,
-      height: '300px',
+      height: '600px'
     };
   }
 

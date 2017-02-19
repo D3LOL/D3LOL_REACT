@@ -27,8 +27,6 @@ var getJSONFromRiotGames = function(url, callback) {
 getJSONFromRiotGames(champInfoUrl, function(err, data) {
   if (err) throw err;
   var key = Object.keys(data.data);
-  console.log('key:::: ', key);
-  console.log('data:::: ', data.data[key[0]]);
   for(let i = 0; i < key.length; i++) {
     championmodel.insertOne(data.data[key[i]], function(err) {
       if (err) throw err;
