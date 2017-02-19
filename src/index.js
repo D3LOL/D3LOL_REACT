@@ -8,7 +8,7 @@ import createLogger from 'redux-logger';
 import promiseMiddleware from 'redux-promise';
 import { createStore, applyMiddleware, compose } from 'redux';
 import $ from 'jquery';
-
+import DevTools from './DevTools.js'
 
 
 
@@ -18,11 +18,10 @@ const rootElement = document.getElementById('root');
 
 const loggerMiddleware = createLogger()
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, composeEnhancers(
+const store = createStore(reducers, compose(
   applyMiddleware(
   thunkMiddleware, loggerMiddleware, promiseMiddleware
-  )
+  ), DevTools.instrument()
 ));
 
 console.log(store.getState())
@@ -30,6 +29,6 @@ console.log(store.getState())
 
 
 ReactDOM.render(
-   <Provider store={store}><App store={store}/></Provider>, rootElement
+   <Provider store={store}><div><App store={store}/><DevTools /></div></Provider>, rootElement
 );
 
